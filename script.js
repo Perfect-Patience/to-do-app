@@ -29,11 +29,12 @@ function getAllTasks(tasks){
         <label for="${String(id)}" class="customCheckBox">
                 <i class="bi bi-check"></i>
         </label>
-        <label class="task-text" for="${String(id)}">${task}</label>
+        <label class="task-text" for="${String(id)}">${task.text}</label>
 
             <button class="addBtn"><i class="bi bi-pencil-fill"></i></button>
             <button class="deleteBtn" data-id="${id}"><i class="bi bi-trash"></i></button>
         </li>`
+ 
     })
 
     taskList.innerHTML = collection;
@@ -47,6 +48,19 @@ function getAllTasks(tasks){
         })
     })
 
+
+    const checkBoxes = document.querySelectorAll('input[type="checkbox"');
+    checkBoxes.forEach((box) => {
+        const id = Number(box.getAttribute('id'));
+        if(allTasks[id].completed){
+            box.checked = true;
+        }
+        box.addEventListener('change', () =>{
+            allTasks[id].completed = box.checked;
+            saveTasks();
+        })
+    })
+
 }
 
 
@@ -55,7 +69,11 @@ function getAllTasks(tasks){
 // functions
 
 function addTask(task){
-    allTasks.push(task);
+    const taskObj = {
+        text: task,
+        completed: false
+    }
+    allTasks.push(taskObj);
 }
 
 
