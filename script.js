@@ -1,9 +1,12 @@
 const form = document.querySelector('form');
-
 const input = document.querySelector('#taskInput');
 const taskList = document.querySelector('.todoList');
+
+
+//get saved tasks and load them.
 let allTasks = retrieveTasks();
 getAllTasks(allTasks);
+
 
 
 form.addEventListener('submit', (e) =>{
@@ -28,23 +31,31 @@ function getAllTasks(tasks){
         </label>
         <label class="task-text" for="${String(id)}">${task}</label>
 
-            <button><i class="bi bi-pencil-fill"></i></button
-            ><button><i class="bi bi-trash"></i></button>
+            <button class="addBtn"><i class="bi bi-pencil-fill"></i></button>
+            <button class="deleteBtn" data-id="${id}"><i class="bi bi-trash"></i></button>
         </li>`
     })
 
     taskList.innerHTML = collection;
+
+
+    const allDeleteButtons = document.querySelectorAll('.deleteBtn');
+    allDeleteButtons.forEach((button) =>{
+        button.addEventListener('click', (e) =>{
+            const taskId = e.target.closest('button').getAttribute('data-id');
+            deleteTask(taskId);
+        })
+    })
+
 }
 
 
 
 
-
+// functions
 
 function addTask(task){
     allTasks.push(task);
-
-
 }
 
 
@@ -53,9 +64,25 @@ function saveTasks(){
     localStorage.setItem("todos", todos);
 }
 
+
 function retrieveTasks(){
     let todos = localStorage.getItem("todos") || "[]";
     return JSON.parse(todos);
+}
+
+
+function deleteTask(taskId){
+    let newTasks = [];
+
+    allTasks.forEach((task, id) => {
+        if(taskId != String(id)){
+            newTasks.push(task);
+        }      
+    })
+
+    allTasks = newTasks;
+    saveTasks();
+    getAllTasks(allTasks);
 }
 
 
