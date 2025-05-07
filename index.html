@@ -1,14 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO app</title>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-    
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>My Tasks</h1>
+      <div class="container">
+        <form>
+          <input id="taskInput" type="text" placeholder="Enter task detials" />
+          <button id="addButton">Add Task</button>
+        </form>
+
+        <ul class="todoList">
+          <li class="task">
+            <input type="checkbox" id="task-1" />
+            <label for="task-1" class="customCheckBox">
+                
+                <i class="bi bi-check"></i>
+            </label>
+
+            <label class="task-text" for="task-1">Code for 3 hours</label>
+
+            <button><i class="bi bi-pencil-fill"></i></button
+            ><button><i class="bi bi-trash"></i></button>
+          </li>
+
+          <li class="task">
+            <input type="checkbox" id="task-2" />
+            <label for="task-2" class="customCheckBox">
+              <i class="bi bi-check"></i>
+            </label>
+
+            <label for="task-2" class="task-text">Wash clothes</label>
+
+            <button><i class="bi bi-pencil-fill"></i></button
+            ><button><i class="bi bi-trash"></i></button>
+          </li>
+
+          <li class="task">
+            <input type="checkbox" id="task-3" />
+            <label for="task-3" class="customCheckBox">
+              <i class="bi bi-check"></i>
+            </label>
+
+            <label for="task-3" class="task-text">Cook diner</label>
+
+            <button><i class="bi bi-pencil-fill"></i></button
+            ><button><i class="bi bi-trash"></i></button>
+          </li>
+        </ul>
+      </div>
+    </main>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
