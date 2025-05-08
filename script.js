@@ -42,6 +42,27 @@ function getAllTasks(tasks) {
     });
   });
 
+  const allEditButtons = document.querySelectorAll(".editBtn");
+  allEditButtons.forEach((button, id) => {
+    button.addEventListener("click", () => {
+      const pop_up = document.querySelector(".pop-up");
+      pop_up.classList.add("show");
+
+      pop_upForm = document.querySelector(".pop-up form");
+
+      pop_upForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const newText = document.querySelector(".pop-up input");
+        console.log(newText.value);
+
+        if (newText.value.length > 0) {
+          updateTask(id, newText.value);
+          pop_up.classList.remove("show");
+        }
+      });
+    });
+  });
+
 
   const checkBoxes = document.querySelectorAll('input[type="checkbox"');
   checkBoxes.forEach((box) => {
@@ -90,3 +111,8 @@ function deleteTask(taskId) {
   getAllTasks(allTasks);
 }
 
+function updateTask(id, text) {
+    allTasks[id].text = text;
+    saveTasks();
+    getAllTasks(allTasks);
+  }
