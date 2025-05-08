@@ -27,7 +27,7 @@ todo-app/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/perfect-patience/todo-app.git
+   git clone https://github.com/perfect-patience/to-do-app.git
 
 
 2. **Open the app**
@@ -41,6 +41,11 @@ HTML5
 CSS3
 
 JavaScript (Vanilla)
+
+---
+
+## Live Site
+https://perfect-patience.github.io/to-do-app/
 
 ---
 
