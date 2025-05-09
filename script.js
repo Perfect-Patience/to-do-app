@@ -63,6 +63,13 @@ function getAllTasks(tasks) {
     });
   });
 
+  const closeBtn = document.querySelector(".closeBtn");
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    const pop_up = document.querySelector(".pop-up");
+    pop_up.classList.remove("show");
+    console.log("first")
+  })
 
   const checkBoxes = document.querySelectorAll('input[type="checkbox"');
   checkBoxes.forEach((box) => {

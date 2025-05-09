@@ -190,7 +190,7 @@ input[type="checkbox"]:checked ~ button {
 
 }
 
-.pop-up button{
+.saveBtn{
     padding: .5rem 1rem;
     border-radius: 1rem;
     position: absolute;
@@ -200,6 +200,20 @@ input[type="checkbox"]:checked ~ button {
     color: var(--text-color);
     cursor: pointer;
 }
+
+.closeBtn {
+  
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-color);
+      font-size: larger;
+      padding: .5rem;
+  }
+
 
 /* responsive desing starts here */
 
